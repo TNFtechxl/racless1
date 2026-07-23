@@ -1,285 +1,475 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racle School SS1 | Home</title>
 
-<title>Racle School SS1 Class | TNF TECH</title>
+    <meta name="description" content="Official SS1 Class Website of Racle School">
 
-<link rel="stylesheet" href="style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<script src="https://kit.fontawesome.com/your-kit.js" crossorigin="anonymous"></script>
-
+    <!-- Icons -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
+
 <body>
 
-<!-- Loading Screen -->
+<!--=========================
+LOADING SCREEN
+==========================-->
 
 <div id="loader">
-    <div class="loader-text">
-        RACLE SCHOOL
-        <span>SS1 CLASS</span>
+
+    <div class="loader-content">
+
+        <div class="loader-circle"></div>
+
+        <h1>RACLE SCHOOL</h1>
+
+        <p>SS1 CLASS OF 2026</p>
+
     </div>
+
 </div>
 
-<!-- Navigation -->
+<!--=========================
+HEADER
+==========================-->
 
-<nav>
+<header>
+
+<nav class="navbar">
 
 <div class="logo">
 
-🎓 RACLE SS1
+<i class="fas fa-graduation-cap"></i>
+
+<span>RACLE SS1</span>
 
 </div>
 
-<ul>
+<ul class="nav-links">
 
-<li><a href="#home">Home</a></li>
+<li>
+<a class="active" href="index.html">
+Home
+</a>
+</li>
 
-<li><a href="#students">Students</a></li>
+<li>
+<a href="students.html">
+Students
+</a>
+</li>
 
-<li><a href="#teacher">Teacher</a></li>
+<li>
+<a href="teacher.html">
+Teacher
+</a>
+</li>
 
-<li><a href="#gallery">Gallery</a></li>
+<li>
+<a href="gallery.html">
+Gallery
+</a>
+</li>
 
-<li><a href="#about">About</a></li>
+<li>
+<a href="about.html">
+About
+</a>
+</li>
 
 </ul>
 
-<button id="theme-btn">🌙</button>
+<div class="nav-buttons">
 
-</nav>
+<button id="theme-btn">
 
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-<div class="hero-content">
-
-<h1>WELCOME TO</h1>
-
-<h2>RACLE SCHOOL</h2>
-
-<h3>SS1 CLASS OF 2026</h3>
-
-<p>
-Learning Today, Leading Tomorrow.
-</p>
-
-<a href="#students" class="btn">Meet Our Class</a>
-
-</div>
-
-</section>
-
-<!-- STUDENTS -->
-
-<section class="students" id="students">
-
-<h2 class="title">OUR AMAZING STUDENTS</h2>
-
-<div class="search-box">
-
-<input type="text"
-id="search"
-placeholder="Search Student...">
-
-</div>
-
-<div class="card-container">
-
-<!-- STUDENT -->
-
-<div class="card">
-
-<img src="images/lawal-ibrahim.jpg">
-
-<h3>Lawal Ibrahim</h3>
-
-<p>SS1 Student</p>
-
-<button>View Profile</button>
-
-</div>
-
-<div class="card">
-
-<img src="images/rita.jpg">
-
-<h3>Omatseye Rita</h3>
-
-<p>SS1 Student</p>
-
-<button>View Profile</button>
-
-</div>
-
-<div class="card">
-
-<img src="images/mustapha.jpg">
-
-<h3>Akinyemi Mustapha</h3>
-
-<p>SS1 Student</p>
-
-<button>View Profile</button>
-
-</div>
-
-<div class="card">
-
-<img src="images/inioluwa.jpg">
-
-<h3>Oshodi Inioluwa</h3>
-
-<p>SS1 Student</p>
-
-<button>View Profile</button>
-
-</div>
-
-<div class="card">
-
-<img src="images/abigail.jpg">
-
-<h3>Lawal Abigail</h3>
-
-<p>SS1 Student</p>
-
-<button>View Profile</button>
-
-</div>
-
-<div class="card">
-
-<img src="images/praise.jpg">
-
-<h3>Osedeme Praise</h3>
-
-<p>SS1 Student</p>
-
-<button>View Profile</button>
-
-</div>
-
-<div class="card">
-
-<img src="images/samuel.jpg">
-
-<h3>Oyinloye Samuel</h3>
-
-<p>SS1 Student</p>
-
-<button>View Profile</button>
-
-</div>
-
-<div class="card">
-
-<img src="images/feranmi.jpg">
-
-<h3>Oke-Joseph Feranmi</h3>
-
-<p>SS1 Student</p>
-
-<button>View Profile</button>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- TEACHER -->
-
-<section id="teacher">
-
-<h2 class="title">CLASS TEACHER</h2>
-
-<div class="teacher-card">
-
-<img src="images/teacher.jpg">
-
-<h2>Class Teacher</h2>
-
-<p>
-Dedicated, Passionate and Inspiring Future Leaders.
-</p>
-
-</div>
-
-</section>
-
-<!-- GALLERY -->
-
-<section id="gallery">
-
-<h2 class="title">PHOTO GALLERY</h2>
-
-<div class="gallery">
-
-<img src="images/class.jpg">
-
-<img src="images/lawal-ibrahim.jpg">
-
-<img src="images/rita.jpg">
-
-<img src="images/mustapha.jpg">
-
-<img src="images/teacher.jpg">
-
-<img src="images/feranmi.jpg">
-
-</div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<h2 class="title">ABOUT OUR CLASS</h2>
-
-<p class="about-text">
-
-Welcome to the official SS1 Class Website of
-Racle School.
-
-This website was designed to showcase
-our wonderful students, dedicated teachers,
-memorable moments and achievements.
-
-Together we Learn.
-Together we Grow.
-Together we Excel.
-
-</p>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-<h2>RACLE SCHOOL</h2>
-
-<p>SS1 CLASS OF 2026</p>
-
-<p>Created by <span>TNF TECH</span></p>
-
-<p>© 2026 All Rights Reserved</p>
-
-</footer>
-
-<button id="topBtn">
-
-⬆
+<i class="fas fa-moon"></i>
 
 </button>
 
-<script src="script.js"></script>
+<div id="menu-btn">
+
+<i class="fas fa-bars"></i>
+
+</div>
+
+</div>
+
+</nav>
+
+</header>
+
+<!--=========================
+HERO SECTION
+==========================-->
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h3>WELCOME TO</h3>
+
+<h1>
+
+RACLE SCHOOL
+
+</h1>
+
+<h2>
+
+SS1 CLASS OF 2026
+
+</h2>
+
+<p>
+
+Learning Today,
+Leading Tomorrow.
+
+Welcome to our official class website where
+students, teachers and memories come together.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="students.html" class="btn">
+
+Meet Students
+
+</a>
+
+<a href="gallery.html" class="btn btn-outline">
+
+View Gallery
+
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<img src="images/class.jpg" alt="SS1 Class">
+
+</div>
+
+</section>
+
+<!--=========================
+QUICK STATS
+==========================-->
+
+<section class="stats">
+
+<div class="stat-card">
+
+<h1>8</h1>
+
+<p>Students</p>
+
+</div>
+
+<div class="stat-card">
+
+<h1>1</h1>
+
+<p>Teacher</p>
+
+</div>
+
+<div class="stat-card">
+
+<h1>2026</h1>
+
+<p>Class Year</p>
+
+</div>
+
+<div class="stat-card">
+
+<h1>100%</h1>
+
+<p>Excellence</p>
+
+</div>
+
+</section>
+
+<!--=========================
+WELCOME
+==========================-->
+
+<section class="welcome">
+
+<h2>
+
+Welcome to Our Class
+
+</h2>
+
+<p>
+
+This website was designed to celebrate our
+wonderful SS1 students and teachers.
+
+Here you can discover student profiles,
+browse memorable class photos,
+learn more about our class,
+and celebrate our journey together.
+
+</p>
+    <!--=========================
+FEATURED STUDENTS
+==========================-->
+
+<section class="featured-students">
+
+    <div class="section-title">
+
+        <h2>Meet Our Students</h2>
+
+        <p>
+            Every student is unique, talented and
+            contributes to making our class amazing.
+        </p>
+
+    </div>
+
+    <div class="student-preview">
+
+        <div class="preview-card">
+
+            <img src="images/lawal-ibrahim.jpg" alt="Lawal Ibrahim">
+
+            <h3>Lawal Ibrahim</h3>
+
+            <p>SS1 Student</p>
+
+        </div>
+
+        <div class="preview-card">
+
+            <img src="images/rita.jpg" alt="Omatseye Rita">
+
+            <h3>Omatseye Rita</h3>
+
+            <p>SS1 Student</p>
+
+        </div>
+
+        <div class="preview-card">
+
+            <img src="images/mustapha.jpg" alt="Akinyemi Mustapha">
+
+            <h3>Akinyemi Mustapha</h3>
+
+            <p>SS1 Student</p>
+
+        </div>
+
+        <div class="preview-card">
+
+            <img src="images/inioluwa.jpg" alt="Oshodi Inioluwa">
+
+            <h3>Oshodi Inioluwa</h3>
+
+            <p>SS1 Student</p>
+
+        </div>
+
+    </div>
+
+    <div class="center">
+
+        <a href="students.html" class="btn">
+
+            View All Students
+
+        </a>
+
+    </div>
+
+</section>
+
+<!--=========================
+TEACHER PREVIEW
+==========================-->
+
+<section class="teacher-preview">
+
+    <div class="teacher-image">
+
+        <img src="images/teacher.jpg" alt="Class Teacher">
+
+    </div>
+
+    <div class="teacher-info">
+
+        <h2>Meet Our Class Teacher</h2>
+
+        <p>
+
+            Our class teacher is dedicated to helping
+            every student achieve academic excellence,
+            develop good character, and prepare for
+            a successful future.
+
+        </p>
+
+        <a href="teacher.html" class="btn">
+
+            Learn More
+
+        </a>
+
+    </div>
+
+</section>
+
+<!--=========================
+GALLERY PREVIEW
+==========================-->
+
+<section class="gallery-preview">
+
+    <div class="section-title">
+
+        <h2>Class Gallery</h2>
+
+        <p>
+            Some memorable moments from our class.
+        </p>
+
+    </div>
+
+    <div class="gallery-grid">
+
+        <img src="images/class.jpg" alt="Class">
+
+        <img src="images/lawal-ibrahim.jpg" alt="Student">
+
+        <img src="images/teacher.jpg" alt="Teacher">
+
+        <img src="images/rita.jpg" alt="Student">
+
+    </div>
+
+    <div class="center">
+
+        <a href="gallery.html" class="btn">
+
+            Open Gallery
+
+        </a>
+
+    </div>
+
+</section>
+
+<!--=========================
+CALL TO ACTION
+==========================-->
+
+<section class="cta">
+
+    <h2>
+
+        Together We Learn,
+        Together We Grow.
+
+    </h2>
+
+    <p>
+
+        Education is the foundation of success.
+        We are proud to be members of
+        Racle School SS1 Class of 2026.
+
+    </p>
+
+    <a href="about.html" class="btn">
+
+        Learn More About Us
+
+    </a>
+
+</section>
+
+<!--=========================
+FOOTER
+==========================-->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <h2>RACLE SCHOOL</h2>
+
+            <p>SS1 CLASS OF 2026</p>
+
+        </div>
+
+        <div>
+
+            <h3>Quick Links</h3>
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="students.html">Students</a></li>
+
+                <li><a href="teacher.html">Teacher</a></li>
+
+                <li><a href="gallery.html">Gallery</a></li>
+
+                <li><a href="about.html">About</a></li>
+
+            </ul>
+
+        </div>
+
+        <div>
+
+            <h3>Created By</h3>
+
+            <p>TNF TECH</p>
+
+            <p>© 2026 All Rights Reserved</p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- Back To Top -->
+
+<button id="topBtn">
+
+<i class="fas fa-arrow-up"></i>
+
+</button>
+
+<!-- JavaScript -->
+
+<script src="js/script.js"></script>
 
 </body>
 </html>
+
+</section>
