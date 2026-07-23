@@ -1,0 +1,497 @@
+/*=================================================
+        RACLE SCHOOL SS1 WEBSITE
+        Created By TNF TECH © 2026
+==================================================*/
+
+/* Google Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+:root{
+
+    --primary:#0d6efd;
+    --secondary:#2196f3;
+    --dark:#05070d;
+    --dark2:#0c1220;
+    --white:#ffffff;
+    --gray:#c9c9c9;
+
+    --radius:18px;
+    --shadow:0 15px 35px rgba(0,0,0,.35);
+
+}
+
+body{
+
+    background:linear-gradient(135deg,#05070d,#081420,#05070d);
+
+    color:#fff;
+
+    overflow-x:hidden;
+
+}
+
+/* Background Glow */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:650px;
+
+height:650px;
+
+background:#0d6efd;
+
+filter:blur(220px);
+
+opacity:.18;
+
+top:-250px;
+
+left:-250px;
+
+z-index:-2;
+
+animation:glow1 14s infinite alternate;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+width:600px;
+
+height:600px;
+
+background:#00b7ff;
+
+filter:blur(220px);
+
+opacity:.15;
+
+bottom:-250px;
+
+right:-250px;
+
+z-index:-2;
+
+animation:glow2 14s infinite alternate;
+
+}
+
+@keyframes glow1{
+
+to{
+
+transform:translate(160px,120px);
+
+}
+
+}
+
+@keyframes glow2{
+
+to{
+
+transform:translate(-160px,-120px);
+
+}
+
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:var(--primary);
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#05070d;
+
+}
+
+/* Loader */
+
+#loader{
+
+position:fixed;
+
+inset:0;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:#05070d;
+
+z-index:99999;
+
+}
+
+.loader-content{
+
+text-align:center;
+
+}
+
+.loader-circle{
+
+width:90px;
+
+height:90px;
+
+border-radius:50%;
+
+border:6px solid rgba(255,255,255,.15);
+
+border-top:6px solid var(--primary);
+
+animation:spin 1s linear infinite;
+
+margin:auto;
+
+}
+
+.loader-content h1{
+
+margin-top:20px;
+
+font-size:36px;
+
+color:var(--primary);
+
+}
+
+.loader-content p{
+
+margin-top:10px;
+
+color:#bbb;
+
+}
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/* Header */
+
+header{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+z-index:999;
+
+}
+
+.navbar{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px 8%;
+
+background:rgba(0,0,0,.35);
+
+backdrop-filter:blur(15px);
+
+border-bottom:1px solid rgba(255,255,255,.05);
+
+}
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+text-decoration:none;
+
+font-size:28px;
+
+font-weight:700;
+
+color:var(--primary);
+
+}
+
+.logo i{
+
+font-size:30px;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:35px;
+
+list-style:none;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+color:#fff;
+
+font-weight:500;
+
+position:relative;
+
+transition:.3s;
+
+}
+
+.nav-links a:hover,
+
+.nav-links a.active{
+
+color:var(--primary);
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-6px;
+
+width:0;
+
+height:2px;
+
+background:var(--primary);
+
+transition:.3s;
+
+}
+
+.nav-links a:hover::after,
+
+.nav-links a.active::after{
+
+width:100%;
+
+}
+
+.nav-buttons{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+#theme-btn{
+
+width:45px;
+
+height:45px;
+
+border:none;
+
+border-radius:50%;
+
+background:var(--primary);
+
+color:#fff;
+
+cursor:pointer;
+
+font-size:18px;
+
+transition:.3s;
+
+}
+
+#theme-btn:hover{
+
+transform:rotate(180deg);
+
+}
+
+#menu-btn{
+
+display:none;
+
+font-size:28px;
+
+cursor:pointer;
+
+color:#fff;
+
+}
+
+/* Hero */
+
+.hero{
+
+min-height:100vh;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:60px;
+
+align-items:center;
+
+padding:140px 8% 80px;
+
+}
+
+.hero-text h3{
+
+letter-spacing:3px;
+
+color:#bcdcff;
+
+margin-bottom:15px;
+
+}
+
+.hero-text h1{
+
+font-size:72px;
+
+line-height:1.1;
+
+color:var(--primary);
+
+margin-bottom:15px;
+
+}
+
+.hero-text h2{
+
+font-size:34px;
+
+margin-bottom:20px;
+
+}
+
+.hero-text p{
+
+line-height:2;
+
+color:#ddd;
+
+margin-bottom:35px;
+
+}
+
+.hero-buttons{
+
+display:flex;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+.btn{
+
+display:inline-block;
+
+padding:14px 34px;
+
+border-radius:40px;
+
+background:var(--primary);
+
+text-decoration:none;
+
+color:#fff;
+
+font-weight:600;
+
+transition:.3s;
+
+box-shadow:0 0 20px rgba(13,110,253,.4);
+
+}
+
+.btn:hover{
+
+transform:translateY(-5px);
+
+background:#238cff;
+
+}
+
+.btn-outline{
+
+background:transparent;
+
+border:2px solid var(--primary);
+
+}
+
+.hero-image img{
+
+width:100%;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+}
