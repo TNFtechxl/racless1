@@ -1,92 +1,306 @@
-// =====================================
-// RACLE SCHOOL SS1 WEBSITE
-// Created by TNF TECH © 2026
-// =====================================
+/*=========================================
+  RACLE SCHOOL SS1 WEBSITE
+  Created by TNF TECH © 2026
+=========================================*/
 
-// ----------------------
-// Loading Screen
-// ----------------------
+// =============================
+// LOADING SCREEN
+// =============================
 
 window.addEventListener("load", () => {
+
     const loader = document.getElementById("loader");
 
-    setTimeout(() => {
-        loader.style.opacity = "0";
-        loader.style.visibility = "hidden";
-        loader.style.transition = "1s";
-    }, 1500);
-});
+    if (loader) {
 
-// ----------------------
-// Student Search
-// ----------------------
+        setTimeout(() => {
 
-const search = document.getElementById("search");
+            loader.style.opacity = "0";
+            loader.style.visibility = "hidden";
+            loader.style.transition = "0.8s";
 
-if (search) {
-    search.addEventListener("keyup", function () {
-
-        let value = this.value.toLowerCase();
-
-        let cards = document.querySelectorAll(".card");
-
-        cards.forEach(card => {
-
-            let name = card.querySelector("h3").textContent.toLowerCase();
-
-            if (name.includes(value)) {
-                card.style.display = "block";
-            } else {
-                card.style.display = "none";
-            }
-
-        });
-
-    });
-}
-
-// ----------------------
-// Dark / Light Mode
-// ----------------------
-
-const themeBtn = document.getElementById("theme-btn");
-
-let dark = true;
-
-themeBtn.addEventListener("click", () => {
-
-    if (dark) {
-
-        document.body.style.background = "#f5f5f5";
-        document.body.style.color = "#111";
-
-        document.querySelectorAll(".card").forEach(card => {
-            card.style.background = "#ffffff";
-            card.style.color = "#111";
-        });
-
-        document.querySelector(".teacher-card").style.background="#ffffff";
-        document.querySelector(".teacher-card").style.color="#111";
-
-        themeBtn.innerHTML="☀";
-
-        dark=false;
-
-    } else {
-
-        location.reload();
+        }, 1200);
 
     }
 
 });
 
-// ----------------------
-// Back To Top
-// ----------------------
+// =============================
+// MOBILE MENU
+// =============================
+
+const menuBtn = document.getElementById("menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+if(menuBtn && navLinks){
+
+menuBtn.addEventListener("click",()=>{
+
+navLinks.classList.toggle("active");
+
+if(navLinks.classList.contains("active")){
+
+menuBtn.innerHTML='<i class="fas fa-times"></i>';
+
+}else{
+
+menuBtn.innerHTML='<i class="fas fa-bars"></i>';
+
+}
+
+});
+
+}
+
+// Close menu when a link is clicked
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+if(navLinks){
+
+navLinks.classList.remove("active");
+
+}
+
+if(menuBtn){
+
+menuBtn.innerHTML='<i class="fas fa-bars"></i>';
+
+}
+
+});
+
+});
+
+// =============================
+// DARK / LIGHT MODE
+// =============================
+
+const themeBtn=document.getElementById("theme-btn");
+
+const body=document.body;
+
+const savedTheme=localStorage.getItem("theme");
+
+if(savedTheme==="light"){
+
+enableLight();
+
+}
+
+if(themeBtn){
+
+themeBtn.addEventListener("click",()=>{
+
+if(body.classList.contains("light-mode")){
+
+enableDark();
+
+}else{
+
+enableLight();
+
+}
+
+});
+
+}
+
+function enableLight(){
+
+body.classList.add("light-mode");
+
+localStorage.setItem("theme","light");
+
+if(themeBtn){
+
+themeBtn.innerHTML='<i class="fas fa-sun"></i>';
+
+}
+
+}
+
+function enableDark(){
+
+body.classList.remove("light-mode");
+
+localStorage.setItem("theme","dark");
+
+if(themeBtn){
+
+themeBtn.innerHTML='<i class="fas fa-moon"></i>';
+
+}
+
+}
+
+// =============================
+// SMOOTH SCROLL
+// =============================
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+
+anchor.addEventListener("click",function(e){
+
+e.preventDefault();
+
+const target=document.querySelector(this.getAttribute("href"));
+
+if(target){
+
+target.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+}
+
+});
+
+});
+
+// =============================
+// HERO FADE ANIMATION
+// =============================
+
+const hero=document.querySelector(".hero");
+
+if(hero){
+
+hero.animate(
+
+[
+
+{
+
+opacity:0,
+
+transform:"translateY(60px)"
+
+},
+
+{
+
+opacity:1,
+
+transform:"translateY(0)"
+
+}
+
+],
+
+{
+
+duration:1200,
+
+fill:"forwards"
+
+}
+
+);
+
+}
+
+// =============================
+// FLOATING MOUSE GLOW
+// =============================
+
+const glow=document.createElement("div");
+
+glow.id="mouseGlow";
+
+document.body.appendChild(glow);
+
+glow.style.position="fixed";
+glow.style.width="25px";
+glow.style.height="25px";
+glow.style.background="#0d6efd";
+glow.style.borderRadius="50%";
+glow.style.pointerEvents="none";
+glow.style.filter="blur(18px)";
+glow.style.opacity=".45";
+glow.style.zIndex="9999";
+
+document.addEventListener("mousemove",(e)=>{
+
+glow.style.left=(e.clientX-12)+"px";
+
+glow.style.top=(e.clientY-12)+"px";
+
+});
+
+// =============================
+// BUTTON HOVER EFFECT
+// =============================
+
+document.querySelectorAll(".btn").forEach(btn=>{
+
+btn.addEventListener("mouseenter",()=>{
+
+btn.style.transform="translateY(-5px) scale(1.05)";
+
+});
+
+btn.addEventListener("mouseleave",()=>{
+
+btn.style.transform="translateY(0) scale(1)";
+
+});
+
+});
+
+console.log("Racle School SS1 Website Loaded Successfully.");
+/*=========================================
+        SCRIPT PART 2
+        RACLE SCHOOL SS1
+=========================================*/
+
+// ==============================
+// LIVE SEARCH
+// ==============================
+
+const searchInput = document.getElementById("search");
+
+if (searchInput) {
+
+    searchInput.addEventListener("keyup", function () {
+
+        const value = this.value.toLowerCase();
+
+        const cards = document.querySelectorAll(".student-card");
+
+        cards.forEach(card => {
+
+            const name = card.querySelector("h2").textContent.toLowerCase();
+
+            if (name.includes(value)) {
+
+                card.style.display = "block";
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+}
+
+// ==============================
+// BACK TO TOP
+// ==============================
 
 const topBtn = document.getElementById("topBtn");
 
 window.addEventListener("scroll", () => {
+
+    if (!topBtn) return;
 
     if (window.scrollY > 300) {
 
@@ -100,168 +314,231 @@ window.addEventListener("scroll", () => {
 
 });
 
-topBtn.onclick = () => {
+if (topBtn) {
 
-    window.scrollTo({
+    topBtn.addEventListener("click", () => {
 
-        top:0,
+        window.scrollTo({
 
-        behavior:"smooth"
+            top: 0,
+
+            behavior: "smooth"
+
+        });
 
     });
 
-};
+}
 
-// ----------------------
-// Scroll Reveal
-// ----------------------
+// ==============================
+// SCROLL REVEAL
+// ==============================
 
-const reveal = () => {
+const revealElements = document.querySelectorAll(
 
-    const elements = document.querySelectorAll(".card,.teacher-card,.gallery img");
+".student-card,.preview-card,.stat-card,.info-box,.teacher-info,.gallery-grid img"
 
-    elements.forEach(el=>{
+);
+
+function reveal() {
+
+    revealElements.forEach(el => {
 
         const top = el.getBoundingClientRect().top;
 
         const visible = window.innerHeight - 100;
 
-        if(top < visible){
+        if (top < visible) {
 
-            el.style.opacity="1";
-
-            el.style.transform="translateY(0)";
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
 
         }
 
     });
 
-};
+}
 
-window.addEventListener("scroll",reveal);
+window.addEventListener("scroll", reveal);
 
 reveal();
 
-// ----------------------
-// Welcome Message
-// ----------------------
+// ==============================
+// COUNTER ANIMATION
+// ==============================
 
-setTimeout(()=>{
+const counters = document.querySelectorAll(".stat-card h1");
 
-console.log("Welcome to Racle School SS1 Website");
+counters.forEach(counter => {
 
-},2000);
+    const target = counter.innerText;
 
-// ----------------------
-// Current Year
-// ----------------------
+    if (isNaN(target)) return;
 
-const year = new Date().getFullYear();
+    let count = 0;
 
-console.log("© "+year+" TNF TECH");
+    const update = () => {
 
-// ----------------------
-// Hero Animation
-// ----------------------
+        count++;
 
-const hero=document.querySelector(".hero-content");
+        counter.innerText = count;
 
-hero.animate([
+        if (count < Number(target)) {
 
-{opacity:0,transform:"translateY(80px)"},
+            requestAnimationFrame(update);
 
-{opacity:1,transform:"translateY(0)"}
+        }
 
-],{
+    };
 
-duration:1500
+    update();
 
 });
 
-// ----------------------
-// Floating Glow Effect
-// ----------------------
+// ==============================
+// IMAGE LIGHTBOX
+// ==============================
 
-document.addEventListener("mousemove",(e)=>{
+const images = document.querySelectorAll(".gallery-grid img");
 
-let glow=document.getElementById("glow");
+if (images.length > 0) {
 
-if(!glow){
+    const lightbox = document.createElement("div");
 
-glow=document.createElement("div");
+    lightbox.id = "lightbox";
 
-glow.id="glow";
+    lightbox.innerHTML = "<img>";
 
-document.body.appendChild(glow);
+    document.body.appendChild(lightbox);
 
-glow.style.position="fixed";
+    const img = lightbox.querySelector("img");
 
-glow.style.width="20px";
+    lightbox.style.cssText = `
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,.9);
+        display:none;
+        justify-content:center;
+        align-items:center;
+        z-index:99999;
+        cursor:pointer;
+        padding:20px;
+    `;
 
-glow.style.height="20px";
+    img.style.cssText = `
+        max-width:90%;
+        max-height:90%;
+        border-radius:15px;
+    `;
 
-glow.style.borderRadius="50%";
+    images.forEach(image => {
 
-glow.style.background="#0d6efd";
+        image.addEventListener("click", () => {
 
-glow.style.pointerEvents="none";
+            lightbox.style.display = "flex";
 
-glow.style.filter="blur(18px)";
+            img.src = image.src;
 
-glow.style.opacity=".6";
+        });
 
-glow.style.zIndex="999";
+    });
+
+    lightbox.addEventListener("click", () => {
+
+        lightbox.style.display = "none";
+
+    });
 
 }
 
-glow.style.left=e.clientX-10+"px";
+// ==============================
+// ACTIVE NAVIGATION
+// ==============================
 
-glow.style.top=e.clientY-10+"px";
+const current = window.location.pathname.split("/").pop();
 
-});
+document.querySelectorAll(".nav-links a").forEach(link => {
 
-// ----------------------
-// Button Animation
-// ----------------------
+    if (link.getAttribute("href") === current) {
 
-document.querySelectorAll("button").forEach(btn=>{
+        link.classList.add("active");
 
-btn.addEventListener("mouseenter",()=>{
-
-btn.style.transform="scale(1.08)";
+    }
 
 });
 
-btn.addEventListener("mouseleave",()=>{
+// ==============================
+// TYPEWRITER EFFECT
+// ==============================
 
-btn.style.transform="scale(1)";
+const title = document.querySelector(".hero h2");
+
+if (title) {
+
+    const text = title.textContent;
+
+    title.textContent = "";
+
+    let i = 0;
+
+    function type() {
+
+        if (i < text.length) {
+
+            title.textContent += text.charAt(i);
+
+            i++;
+
+            setTimeout(type, 70);
+
+        }
+
+    }
+
+    type();
+
+}
+
+// ==============================
+// CARD CLICK EFFECT
+// ==============================
+
+document.querySelectorAll(".student-card,.preview-card").forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        card.animate(
+
+            [
+
+                { transform: "scale(.95)" },
+
+                { transform: "scale(1.05)" },
+
+                { transform: "scale(1)" }
+
+            ],
+
+            {
+
+                duration: 300
+
+            }
+
+        );
+
+    });
 
 });
 
-});
+// ==============================
+// CURRENT YEAR
+// ==============================
 
-// ----------------------
-// Card Click Animation
-// ----------------------
+document.querySelectorAll(".year").forEach(year => {
 
-document.querySelectorAll(".card").forEach(card=>{
-
-card.addEventListener("click",()=>{
-
-card.animate([
-
-{transform:"scale(.9)"},
-
-{transform:"scale(1.03)"},
-
-{transform:"scale(1)"}
-
-],{
-
-duration:300
+    year.textContent = new Date().getFullYear();
 
 });
 
-});
-
-});
+console.log("TNF TECH © 2026 - Script Loaded Successfully");
